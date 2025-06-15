@@ -2,7 +2,8 @@ from flask import Blueprint, request, jsonify
 import psycopg2
 import psycopg2.extras
 import os
-
+import sys
+print("🐍 Python version:", sys.version)
 webhook_bp = Blueprint('webhook', __name__)
 
 def get_db_connection():
