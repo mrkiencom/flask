@@ -149,3 +149,11 @@ def webhook():
         response = {"fulfillmentText": "Xin lỗi, tôi chưa hiểu yêu cầu của bạn."}
 
     return jsonify(response)
+
+def create_app():
+    app = Flask(__name__)
+    app.register_blueprint(webhook_bp)
+    return app
+
+# Gunicorn sẽ chạy app này
+app = create_app()
