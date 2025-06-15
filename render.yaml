@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: flask
-    env: docker
-    dockerfilePath: Dockerfile
-    plan: free
