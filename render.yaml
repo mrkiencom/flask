@@ -1,11 +1,6 @@
 services:
   - type: web
     name: flask
-    env: python
+    env: docker
+    dockerfilePath: Dockerfile
     plan: free
-    branch: main
-    region: oregon
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn main:app"
-    runtime: python
-    pythonVersion: 3.11.9
