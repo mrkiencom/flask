@@ -7,11 +7,11 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Cấu hình PostgreSQL (nên dùng biến môi trường khi deploy thật)
-DB_HOST = os.environ.get('DB_HOST', 'localhost')
-DB_USER = os.environ.get('DB_USER', 'postgres')
-DB_PASSWORD = os.environ.get('DB_PASSWORD', '123456')
-DB_NAME = os.environ.get('DB_NAME', 'myproject')
-DB_PORT = os.environ.get('DB_PORT', '5432')
+DB_HOST = os.getenv('DB_HOST')
+DB_NAME = os.getenv('DB_NAME')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_PORT = os.getenv('DB_PORT', '5432')
 
 
 def get_db_connection():
