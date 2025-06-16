@@ -90,8 +90,8 @@ def Search_Course_by_name(req):
             f"- Cấp độ: {level}\n"
             f"- Thể loại: {category}\n"
             f"- Chủ đề: {topic}\n"
-            f"- Giá hiện tại: {price} $.\n"
-            f"Bạn có thể xem chi tiết tại đây: http://doanshop.onrender.com/detailCourse/{course_id}"
+            f"- Giá hiện tại: {price} đ.\n"
+            f"Bạn có thể xem chi tiết tại đây: https://doanshop.onrender.com/courseDetail/{course_id}"
         )
     else:
         response_text = f"Không tìm thấy thông tin cho khóa học '{ten_khoa_hoc}'. Bạn có thể kiểm tra lại tên không?"
@@ -145,7 +145,7 @@ def Search_Course_Combined(req):
     if found_courses:
         response_text = "Dưới đây là một số khóa học phù hợp:\n"
         for course in found_courses:
-            response_text += f"- {course['title']} (Giá: {course['price']}$): http://doanshop.onrender.com/detailCourse/{course['course_id']}\n"
+            response_text += f"- {course['title']} (Giá: {course['price']}đ): https://doanshop.onrender.com/courseDetail/{course['course_id']}\n"
     else:
         response_text = "Không tìm thấy khóa học phù hợp với yêu cầu của bạn."
 
@@ -179,7 +179,7 @@ def Search_Course_by_Category(req):
     if courses:
         response_text = f"Các khóa học thuộc thể loại '{category}':\n"
         for course in courses:
-            response_text += f"- {course['title']} (Giá: {course['price']}$): http://doanshop.onrender.com/detailCourse/{course['course_id']}\n"
+            response_text += f"- {course['title']} (Giá: {course['price']}đ): https://doanshop.onrender.com/courseDetail/{course['course_id']}\n"
     else:
         response_text = f"Không có khóa học nào thuộc thể loại '{category}'."
 
@@ -213,7 +213,7 @@ def Search_Course_by_Topic(req):
     if courses:
         response_text = f"Các khóa học về chủ đề '{topic}':\n"
         for course in courses:
-            response_text += f"- {course['title']} (Giá: {course['price']}$): http://doanshop.onrender.com/detailCourse/{course['course_id']}\n"
+            response_text += f"- {course['title']} (Giá: {course['price']}đ): https://doanshop.onrender.com/courseDetail/{course['course_id']}\n"
     else:
         response_text = f"Không có khóa học nào về chủ đề '{topic}'."
 
@@ -232,10 +232,10 @@ def Get_Course_Price(req):
             if price == 0:
                 message = f"Khóa học '{course['title']}' là miễn phí."
             else:
-                message = f"Khóa học '{course['title']}' có giá {price}$."
+                message = f"Khóa học '{course['title']}' có giá {price}đ."
         except:
             message = f"Không xác định được giá khóa học '{course['title']}'."
-        message += f" Xem: http://doanshop.onrender.com/detailCourse/{course['course_id']}"
+        message += f" Xem: https://doanshop.onrender.com/courseDetail/{course['course_id']}"
     else:
         message = f"Không tìm thấy khóa học '{name}'."
 
