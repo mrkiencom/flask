@@ -89,7 +89,7 @@ def Search_Course_by_name(req, session_id, intent_name, user_input):
             f"- Thể loại: {found_course.get('category', 'không rõ')}\n"
             f"- Chủ đề: {found_course.get('topic', 'không rõ')}\n"
             f"- Giá hiện tại: {found_course.get('price', 0)} đ.\n"
-            f"Xem chi tiết: http://locahost:8080/courseDetail/{found_course['course_id']}"
+            f"Xem chi tiết: https://doanshop.onrender.com/courseDetail/{found_course['course_id']}"
         )
     else:
         response = f"Không tìm thấy thông tin cho khóa học '{ten_khoa_hoc}'. Bạn có thể kiểm tra lại tên không?"
@@ -110,7 +110,7 @@ def Search_Course_Combined(req, session_id, intent_name, user_input):
     if found_courses:
         response = "Dưới đây là một số khóa học phù hợp:\n"
         for c in found_courses:
-            response += f"- {c['title']} (Giá: {c['price']}đ): http://locahost:8080/courseDetail/{c['course_id']}\n"
+            response += f"- {c['title']} (Giá: {c['price']}đ): https://doanshop.onrender.com/courseDetail/{c['course_id']}\n"
     else:
         response = "Không tìm thấy khóa học phù hợp với yêu cầu của bạn."
 
@@ -129,7 +129,7 @@ def Search_Course_by_Category(req, session_id, intent_name, user_input):
     if courses:
         response = f"Các khóa học thuộc thể loại '{category}':\n"
         for c in courses:
-            response += f"- {c['title']} (Giá: {c['price']}đ): http://locahost:8080/courseDetail/{c['course_id']}\n"
+            response += f"- {c['title']} (Giá: {c['price']}đ): https://doanshop.onrender.com/courseDetail/{c['course_id']}\n"
     else:
         response = f"Không có khóa học nào thuộc thể loại '{category}'."
 
@@ -148,7 +148,7 @@ def Search_Course_by_Topic(req, session_id, intent_name, user_input):
     if courses:
         response = f"Các khóa học về chủ đề '{topic}':\n"
         for c in courses:
-            response += f"- {c['title']} (Giá: {c['price']}đ): http://locahost:8080/courseDetail/{c['course_id']}\n"
+            response += f"- {c['title']} (Giá: {c['price']}đ): https://doanshop.onrender.com/courseDetail/{c['course_id']}\n"
     else:
         response = f"Không có khóa học nào về chủ đề '{topic}'."
 
@@ -171,7 +171,7 @@ def Get_Course_Price(req, session_id, intent_name, user_input):
                 response = f"Khóa học '{course['title']}' là miễn phí."
             else:
                 response = f"Khóa học '{course['title']}' có giá {price}đ."
-            response += f" Xem: http://locahost:8080/courseDetail/{course['course_id']}"
+            response += f" Xem: https://doanshop.onrender.com/courseDetail/{course['course_id']}"
         except:
             response = f"Không xác định được giá khóa học '{course['title']}'."
     else:
